@@ -170,6 +170,15 @@ export default {
               title: "日期（时间戳）",
               type: "number",
               format: "date"
+          },
+          status: {
+            title: '状态',
+            type: 'array',
+            items: {
+              type: 'string'
+            },
+            default: ['created', 'applay', 'daying'],
+            uniqueItems: true
           }
         }
       },
@@ -232,6 +241,16 @@ export default {
         dateTime: {
           'ui:options': {
             placeholder: '请选择日期时间'
+          }
+        },
+        status: {
+          'ui:field': 'StatusCheckbox',
+          'ui:options': {
+            enums: [
+              {value: 'created', label: '已创建'},
+              {value: 'applay', label: '已申请'},
+              {value: 'daying', label: '已打印'}
+            ],
           }
         }
       },
